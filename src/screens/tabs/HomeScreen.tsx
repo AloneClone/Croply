@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, View, Text, Animated } from 'react-native';
-import { TouchableOpacity } from '../components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../constants/Theme';
-import { Header } from '../components/dashboard/Header';
-import { ProgressCard } from '../components/dashboard/ProgressCard';
-import { BonusBanner } from '../components/dashboard/BonusBanner';
-import { TaskCard } from '../components/dashboard/TaskCard';
-import { LeaderboardReel } from '../components/dashboard/LeaderboardReel';
-import { Card } from '../components/common/Card';
-import { ProgressBar } from '../components/common/ProgressBar';
-import { useAppContext } from '../context/AppContext';
+import { Colors, Spacing, BorderRadius, Shadows } from '../../constants/Theme';
+import { Header } from '../../components/dashboard/Header';
+import { ProgressCard } from '../../components/dashboard/ProgressCard';
+import { BonusBanner } from '../../components/dashboard/BonusBanner';
+import { TaskCard } from '../../components/dashboard/TaskCard';
+import { LeaderboardReel } from '../../components/dashboard/LeaderboardReel';
+import { Card } from '../../components/common/Card';
+import { ProgressBar } from '../../components/common/ProgressBar';
+import { useAppContext } from '../../context/AppContext';
 import { useNavigation } from '@react-navigation/native';
 import {
   CheckCircle, TrendingUp, Gift, X,
