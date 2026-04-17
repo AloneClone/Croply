@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, View, Text, Animated } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../../src/constants/Theme';
-import { Header } from '../../src/components/dashboard/Header';
-import { ProgressCard } from '../../src/components/dashboard/ProgressCard';
-import { BonusBanner } from '../../src/components/dashboard/BonusBanner';
-import { TaskCard } from '../../src/components/dashboard/TaskCard';
-import { LeaderboardReel } from '../../src/components/dashboard/LeaderboardReel';
-import { Card } from '../../src/components/common/Card';
-import { ProgressBar } from '../../src/components/common/ProgressBar';
-import { useAppContext } from '../../src/context/AppContext';
-import { useRouter } from 'expo-router';
+import { Colors, Spacing, BorderRadius, Shadows } from '../constants/Theme';
+import { Header } from '../components/dashboard/Header';
+import { ProgressCard } from '../components/dashboard/ProgressCard';
+import { BonusBanner } from '../components/dashboard/BonusBanner';
+import { TaskCard } from '../components/dashboard/TaskCard';
+import { LeaderboardReel } from '../components/dashboard/LeaderboardReel';
+import { Card } from '../components/common/Card';
+import { ProgressBar } from '../components/common/ProgressBar';
+import { useAppContext } from '../context/AppContext';
+import { useNavigation } from '@react-navigation/native';
 import {
   CheckCircle, TrendingUp, Gift, X,
   AlertTriangle, Info, Award, Flame
@@ -19,7 +19,7 @@ import {
 
 export default function HomeScreen() {
   const { tasks, dailyProgress, rewardSummary, announcements, markAnnouncementRead, completeTask, updateXP } = useAppContext();
-  const router = useRouter();
+  const navigation = useNavigation<any>();
 
   const [cameraTaskId, setCameraTaskId] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
@@ -151,7 +151,7 @@ export default function HomeScreen() {
         {/* 6. Daily Quests */}
         <View style={styles.sectionRow}>
           <Text style={styles.sectionTitle}>Daily Quests</Text>
-          <TouchableOpacity style={styles.viewAllBtn} onPress={() => router.push('/tasks')} activeOpacity={0.7}>
+          <TouchableOpacity style={styles.viewAllBtn} onPress={() => navigation.navigate('Tasks')} activeOpacity={0.7}>
             <Text style={styles.viewAllText}>View all →</Text>
           </TouchableOpacity>
         </View>

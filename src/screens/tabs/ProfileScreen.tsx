@@ -1,26 +1,26 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, Alert } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../../src/constants/Theme';
-import { useAppContext } from '../../src/context/AppContext';
-import { useAuth } from '../../src/context/AuthContext';
+import { Colors, Spacing, BorderRadius, Shadows } from '../../constants/Theme';
+import { useAppContext } from '../../context/AppContext';
+import { useAuth } from '../../context/AuthContext';
 import { Settings, MapPin, Award, CheckCircle, ChevronRight, LogOut } from 'lucide-react-native';
-import { useRouter } from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileScreen() {
   const { user } = useAppContext();
   const { profile, signOut } = useAuth();
-  const router = useRouter();
+  const navigation = useNavigation<any>();
 
   const handleLogout = () => {
     signOut();
   };
 
   const handleAction = (action: string) => {
-    if (action === 'Settings') router.push('/settings');
-    if (action === 'Notifications') router.push('/settings/notifications');
-    if (action === 'Language') router.push('/settings/language');
+    if (action === 'Settings') navigation.navigate('Settings');
+    if (action === 'Notifications') navigation.navigate('Notifications');
+    if (action === 'Language') navigation.navigate('Language');
   };
 
   if (!user) return null;

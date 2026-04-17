@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Switch } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius } from '../../src/constants/Theme';
-import { useRouter } from 'expo-router';
+import { Colors, Spacing, BorderRadius } from '../../constants/Theme';
+import { useNavigation } from '@react-navigation/native';
 import { ArrowLeft, Bell, Globe, Shield, HelpCircle, FileText, ChevronRight } from 'lucide-react-native';
 
 export default function SettingsScreen() {
-  const router = useRouter();
+  const navigation = useNavigation<any>();
   const [offlineMode, setOfflineMode] = useState(false);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
           <ArrowLeft size={24} color={Colors.text.primary} />
         </TouchableOpacity>
         <Text style={styles.title}>Settings</Text>
@@ -24,7 +24,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Preferences</Text>
           <View style={styles.card}>
-            <TouchableOpacity style={styles.row} onPress={() => router.push('/settings/notifications')}>
+            <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Notifications')}>
               <View style={styles.rowLeft}>
                 <View style={[styles.iconBox, { backgroundColor: Colors.accent.lightBlue }]}>
                   <Bell size={20} color={Colors.secondary} />
@@ -36,7 +36,7 @@ export default function SettingsScreen() {
 
             <View style={styles.divider} />
 
-            <TouchableOpacity style={styles.row} onPress={() => router.push('/settings/language')}>
+            <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('Language')}>
               <View style={styles.rowLeft}>
                 <View style={[styles.iconBox, { backgroundColor: Colors.accent.lightGreen }]}>
                   <Globe size={20} color={Colors.primary} />

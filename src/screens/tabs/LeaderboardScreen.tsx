@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../../src/constants/Theme';
-import { useAppContext } from '../../src/context/AppContext';
+import { Colors, Spacing, BorderRadius, Shadows } from '../../constants/Theme';
+import { useAppContext } from '../../context/AppContext';
 import { Trophy, Medal, ChevronUp } from 'lucide-react-native';
 
 export default function LeaderboardScreen() {

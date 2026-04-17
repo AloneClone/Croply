@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { TouchableOpacity } from '../src/components/common/Touchable';
+import { TouchableOpacity } from '../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../src/constants/Theme';
+import { Colors, Spacing, BorderRadius, Shadows } from '../constants/Theme';
 import { Mail, Phone, Sparkles } from 'lucide-react-native';
-import { useAuth } from '../src/context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function LoginScreen() {
   const { signIn } = useAuth();

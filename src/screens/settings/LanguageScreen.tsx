@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius } from '../../src/constants/Theme';
-import { useRouter } from 'expo-router';
+import { Colors, Spacing, BorderRadius } from '../../constants/Theme';
+import { useNavigation } from '@react-navigation/native';
 import { ArrowLeft, Check } from 'lucide-react-native';
-import { useAuth } from '../../src/context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 const LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English' },
@@ -19,7 +19,7 @@ const LANGUAGES = [
 ];
 
 export default function LanguageScreen() {
-  const router = useRouter();
+  const navigation = useNavigation<any>();
   const { profile, updateProfile } = useAuth();
 
   const currentLanguage = profile?.language || 'English';
@@ -28,14 +28,14 @@ export default function LanguageScreen() {
     updateProfile({ language: langName });
     // Go back after selection
     setTimeout(() => {
-      router.back();
+      navigation.goBack();
     }, 300);
   };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
           <ArrowLeft size={24} color={Colors.text.primary} />
         </TouchableOpacity>
         <Text style={styles.title}>Language</Text>

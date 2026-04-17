@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../../src/constants/Theme';
-import { useAuth } from '../../src/context/AuthContext';
+import { Colors, Spacing, BorderRadius, Shadows } from '../../constants/Theme';
+import { useAuth } from '../../context/AuthContext';
 import { ChevronRight, ChevronLeft, Check } from 'lucide-react-native';
 
 const LANGUAGES = ['English', 'Hindi', 'Punjabi', 'Kannada', 'Tamil'];

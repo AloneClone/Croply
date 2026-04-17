@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { TouchableOpacity } from '../../src/components/common/Touchable';
+import { TouchableOpacity } from '../../components/common/Touchable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, Shadows } from '../../src/constants/Theme';
-import { TaskCard } from '../../src/components/dashboard/TaskCard';
-import { useAppContext } from '../../src/context/AppContext';
+import { Colors, Spacing, BorderRadius, Shadows } from '../../constants/Theme';
+import { TaskCard } from '../../components/dashboard/TaskCard';
+import { useAppContext } from '../../context/AppContext';
 import { ListFilter, CheckCircle } from 'lucide-react-native';
 
 const CATEGORIES = ['All', 'Water', 'Soil', 'Crop', 'Pest'];
